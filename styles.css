@@ -1,3 +1,52 @@
 .heading {
     color: red;
+    border-radius: 0% ;
+}
+.header{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.logo-container{
+    width: 200px;
+    /* height: 50%; */
+    /* display: inline-block; */
+    /* display: flex; */
+}
+.nav-items > ul{
+     display: flex;
+
+}
+.nav-items > ul >li{
+   margin: 10px;
+   padding: 5px;
+   list-style:none ;
+   font-size: 24px;
+}
+.search{
+    margin: 10px;
+    padding: 10px;
+}
+.res-card{
+    width: 250px;
+    word-wrap: break-word;
+    margin: 5px;
+    background-color:lightcyan;
+}
+.res-container :hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+.res-img{
+    width: 250px;
+    height: 120px;
+}
+h4{
+    text-overflow: ellipsis;
 }
