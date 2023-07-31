@@ -47,6 +47,8 @@
     width: 250px;
     height: 120px;
 }
-h4{
-    text-overflow: ellipsis;
+.search-btn{
+    margin: 10px;
+    padding: 5px;
+    width: 100px;
 }
