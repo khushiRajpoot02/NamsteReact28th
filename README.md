@@ -39,3 +39,5 @@ while writing like above, when component re-rendered we are updating  the const 
 Ans => when component re-render whole UI layer will be re-intialized and their values would be read.
 ---------------------------------------------------
 Completed search restaurant functionality------
+
+----React Router------
