@@ -1,5 +1,4 @@
 import { CDN_URL } from "../utils/constaints";
-
 const RestaurantCards = (props) => {
     const {res}=props
     const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = res?.info
@@ -14,11 +13,7 @@ const RestaurantCards = (props) => {
         <h4>{cuisines.join(",")}</h4>
         <h4>{avgRating}</h4>
         <h4>{costForTwo}</h4>
-       
-       
       </div>
     );
   };
   export default RestaurantCards;
-
-// i know after revising these things i will be prety much confident about the whole things and will not fear of interview . Got it?? bro ? yeahhh.........

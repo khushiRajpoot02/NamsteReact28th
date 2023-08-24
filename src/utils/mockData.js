@@ -1,4 +1,4 @@
-const resList = [
+export const resList = [
   
     {
       "info": {
@@ -777,4 +777,3 @@ const resList = [
     }
     
   ];
-export default resList;

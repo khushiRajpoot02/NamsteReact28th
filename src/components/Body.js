@@ -1,61 +1,80 @@
 import RestaurantCards from "./RestaurantCards";
-import resList from "../utils/mockData";
-import { useState } from "react";
-// learning of react hoocks 
-// how does useState works and how to declare react variable 
+import { useEffect, useState } from "react";
+import { swiggy_api_URL } from "../utils/constaints";
+import Shimmer from "./Shimmer";
 const Body = () => {
-/*  const arr = [5, 2, 4, 7, 8];
-  function double(x){
-    return x*2;
-  }
-  const output = arr.map(double);
-  console.log(output);
-  const filterOu = arr.filter((x)=>{
-    return x > 2;
-  })
-  console.log(filterOu);
-  // another map function 
-  const arr1 = [10, 20, 30, 40, 50];
-  const result = arr1.map((y)=>(
-                y -5
-  ) )
-  console.log(result);
-  relist array hai uspe map fun use krke uske saare cards ko dispaly krna h 
+  const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  {resList.map((z)=>(
-     <RestaurantCards propvar = {z} key = {z.info.data}/>
- )
-         )}
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-   { const filtereddata = resList.filter((z)=>(
-     z.info.rating > 4;
- )
- setresList(filtereddata);// ye hume filtered data dedegaaa......
-         )} 
-         */      
-
-const [resData , setresDat]  = useState(resList);
-    return (
-      <div className="body">
-       <button className="search-btn"
-        onClick={()=>{
-          const filteredData= resData.filter((res)=>
-          res.info.avgRating > 3.5
-          );
-          setresDat(filteredData);
+  const fetchData = async () => {
+    const responce = await fetch(swiggy_api_URL);
+    const json = await responce.json();
+    console.log(json);
+    // checking API data---
+    let checkData =
+      json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
+    function checkingData(checkData) {
+      for (let i = 0; i < checkData.data.cards.length; i++) {
+        let findData =
+          json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants;
+        if (findData != undefined) {
+          return findData;
         }
-        }
-        >Search-btn</button>
-      
-        <div className="res-container">
-          
-         { resData.map((restaurant)=>(
-          <RestaurantCards res={restaurant} 
-          key={restaurant.info.id}
-          />
-         ))}
-        </div>
-      </div>
-    );
+      }
+    }
+    checkData = checkingData(json);
+    setListOfRestaurants(checkData);
+    setFilteredRestaurant(checkData);
   };
-  export default Body;
+  if (ListOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+  return (
+    <div className="body">
+      <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filteredData = ListOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filteredData);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredData = ListOfRestaurants.filter(
+              (res) => res.info.avgRating > 4
+            );
+            setFilteredRestaurant(filteredData);
+          }}
+        >
+          Top Rated restaurant
+        </button>
+      </div>
+      <div className="res-container">
+        {filteredRestaurant.map((restaurant) => (
+          <RestaurantCards res={restaurant} key={restaurant.info.id} />
+        ))}
+      </div>
+    </div>
+  );
+};
+export default Body;
