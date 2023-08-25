@@ -14,10 +14,10 @@ const Body = () => {
   const fetchData = async () => {
     const responce = await fetch(swiggy_api_URL);
     const json = await responce.json();
-    console.log(json);
+    // console.log(json);
     // checking API data---
     let checkData =
-      json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
+      json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants;
     function checkingData(checkData) {
       for (let i = 0; i < checkData.data.cards.length; i++) {
         let findData =
