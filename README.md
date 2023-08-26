@@ -34,7 +34,7 @@ it basically use when we get data from API and until data come shimmer UI will b
 ----------------useState()---------------------------
 useState() is a react hook, which make changes in UI. Basically whenever useState variable changes the component re-rendered and all the const and other things will be changed with the updated value. Now the Diff algo comes into the picture and it find diff b/w the old UI and new UI and update it on UI.
 
-Ques.  const[loginbtn, setLoginbtn] = useState("Login");
+----------------Ques.  const[loginbtn, setLoginbtn] = useState("Login");
 while writing like above, when component re-rendered we are updating  the const variable but it is not possible in js then how does it works?
 Ans => when component re-render whole UI layer will be re-intialized and their values would be read.
 ---------------------------------------------------
