@@ -42,60 +42,29 @@
 // }
 // export default RestaurantMenu;
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import {
- swiggy_menu_api_URL,
+  swiggy_menu_api_URL,
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../utils/constaints";
-// import {MenuShimmer} from "./Shimmer";
+import useRestaurantMenu from "../utils/useReastaurantMenu";
 import Shimmer from "./Shimmer";
-const RestaurantMenu = () => {  
+const RestaurantMenu = () => {
   const { resId } = useParams();
-//   console.log(resId); // call useParams and get value of restaurant id using object destructuring
-  const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in res
-  const [menuItems, setMenuItems] = useState([]);
-  useEffect(() => {
-    getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
-  }, []);
-
-  async function getRestaurantInfo() {
-    try {
-      const response = await fetch(swiggy_menu_api_URL+ resId);
-      const json = await response.json();
-
-      // Set restaurant data
-      const restaurantData = json?.data?.cards?.map(x => x.card)?.
-                             find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?.card?.info || null;
-      setRestaurant(restaurantData);
-
-      // Set menu item data
-      const menuItemsData = json?.data?.cards.find(x=> x.groupedCard)?.
-                            groupedCard?.cardGroupMap?.REGULAR?.
-                            cards?.map(x => x.card?.card)?.
-                            filter(x=> x['@type'] == MENU_ITEM_TYPE_KEY)?.
-                            map(x=> x.itemCards).flat().map(x=> x.card?.info) || [];
-      
-      const uniqueMenuItems = [];
-      menuItemsData.forEach((item) => {
-        if (!uniqueMenuItems.find(x => x.id === item.id)) {
-          uniqueMenuItems.push(item);
-        }
-      })
-      setMenuItems(uniqueMenuItems);
-    } catch (error) {
-      setMenuItems([]);
-      setRestaurant(null);
-      console.log(error);
-    }
-  }
-
-  return !restaurant ? (
-    <Shimmer />
-  ) : (
+  // console.log(resId); // call useParams and get value of restaurant id using object destructuring
+  // created custom hook useRestaurantMenu
+  const [restaurant, menuItems] = useRestaurantMenu(
+    resId,
+    swiggy_menu_api_URL,
+    MENU_ITEM_TYPE_KEY,
+    RESTAURANT_TYPE_KEY
+  );
+  if (restaurant === null) return <Shimmer />;
+  return (
     <div className="restaurant-menu">
       <div className="restaurant-summary">
         <img
@@ -107,14 +76,17 @@ const RestaurantMenu = () => {
           <h2 className="restaurant-title">{restaurant?.name}</h2>
           <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
           <div className="restaurant-details">
-            <div className="restaurant-rating" style={
-            (restaurant?.avgRating) < 4
-              ? { backgroundColor: "var(--light-red)" }
-              : (restaurant?.avgRating) === "--"
-              ? { backgroundColor: "white", color: "black" }
-              : { color: "white" }
-          }>
-            <i className="fa-solid fa-star"></i>
+            <div
+              className="restaurant-rating"
+              style={
+                restaurant?.avgRating < 4
+                  ? { backgroundColor: "var(--light-red)" }
+                  : restaurant?.avgRating === "--"
+                  ? { backgroundColor: "white", color: "black" }
+                  : { color: "white" }
+              }
+            >
+              <i className="fa-solid fa-star"></i>
               <span>{restaurant?.avgRating}</span>
             </div>
             <div className="restaurant-rating-slash">|</div>
@@ -129,9 +101,7 @@ const RestaurantMenu = () => {
         <div className="menu-items-container">
           <div className="menu-title-wrap">
             <h3 className="menu-title">Recommended</h3>
-            <p className="menu-count">
-              {menuItems.length} ITEMS
-            </p>
+            <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
           <div className="menu-items-list">
             {menuItems.map((item) => (

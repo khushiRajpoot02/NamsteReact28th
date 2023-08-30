@@ -1,4 +1,3 @@
-import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react";
 import React from "react";
@@ -11,7 +10,7 @@ constructor(props){
  componentDidMount(){
     // // const apiData = "https://api.github.com/users/khushiRajpoot02";
     // const data =  await fetch("https://api.github.com/users/khushiRajpoot02");
-    // const json = data.json();
+    // const json = await data.json();
     // console.log(json);
 
     console.log("Parent component Did Mount");

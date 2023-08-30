@@ -1,4 +1,4 @@
-.heading {
+/* .heading {
     color: red;
     border-radius: 0% ;
 }
@@ -10,11 +10,8 @@
 }
 .logo-container{
     width: 200px;
-    /* height: 50%; */
-    /* display: inline-block; */
-    /* display: flex; */
-}
-.nav-items > ul{
+} */
+/* .nav-items > ul{
      display: flex;
 
 }
@@ -69,17 +66,16 @@
 }
 .login-btn{
     margin-right: 5px;
-    /* box-shadow: #f0f0f0; */
     cursor: pointer;
     border-radius: 4px;
-}
-.login-btn:hover{
-        background-color:#f0f0f0; /* Green */
+} */
+/* .login-btn:hover{
+        background-color:#f0f0f0; 
         color: black;
 
-}
+} */
 /* Restaurant Menu CSS Start */
-.restaurant-menu {
+/* .restaurant-menu {
     margin-top: 80px;
     min-height: 80vh;
     width: auto;
@@ -222,7 +218,9 @@
   .user-card{
     padding: 10px;
     border: 1px solid #3e4152;
-  }
+  } */
   
   /* Restaurant Menu End Start */
-  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

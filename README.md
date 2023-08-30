@@ -52,4 +52,12 @@ Ans => when component re-render whole UI layer will be re-intialized and their v
 Completed search restaurant functionality------
 >>>>>>> 506b48a6826b701220b21fc8b05e008ee3de9ffd
 
-----React Router------
+------------------React Router-------------------------------
+Higher Order Component<==>
+component which takes another component as an argument and return the component. It is used to return inhanced version of component.
+Key Points:
+1. Higher Ordered Components are Pure Component
+2. Pure component or pure functions are the functions which will always return the same output for the given same input.
+3. Pure function does not change any objects or variables that existed before it was called.
+-----------------------------------------------------------------
+
