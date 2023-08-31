@@ -1,17 +1,21 @@
-import RestaurantCards from "./RestaurantCards";
+import RestaurantCards, {withPromotedLabel} from "./RestaurantCards";
 import { useEffect, useState } from "react";
 import { swiggy_api_URL } from "../utils/constaints";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { withPromotedLabel } from "./RestaurantCards";
 const Body = () => {
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const restarountCardPromoted = withPromotedLabel(RestaurantCards);
+
   useEffect(() => {
     fetchData();
   }, []);
-console.log(ListOfRestaurants);
+//console.log(ListOfRestaurants);
   async function fetchData() {
     // handle the error using try... catch
     try {
@@ -69,7 +73,7 @@ console.log(ListOfRestaurants);
         <div className="search m-4 p-4 flex items-center">
         <button
           className="px-4 py-2 bg-gray-100 rounded-lg"
-          onClick={() => {
+          onClick = {() => {
             const filteredData = ListOfRestaurants.filter(
               (res) => res.info.avgRating > 4
             );
@@ -81,7 +85,7 @@ console.log(ListOfRestaurants);
         </div>
         
       </div>
-      <div  className="flex flex-wrap justify-between">
+      <div  className="flex flex-wrap content-stretch ">
         
 {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
 {filteredRestaurant.map((restaurant) => {
@@ -90,8 +94,11 @@ console.log(ListOfRestaurants);
       to={"/restaurant/" + restaurant?.info?.id}
       key={restaurant?.info?.id}
     >
-      <RestaurantCards 
-      res = {restaurant} />
+
+    {restaurant.info.promoted ? 
+      <restarountCardPromoted res = {restaurant} /> 
+      : <RestaurantCards res = {restaurant} /> }
+     
     </Link>
   );
 })}
