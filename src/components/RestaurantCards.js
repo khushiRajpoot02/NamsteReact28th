@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constaints";
+import UserContext from "../utils/UserContext";
 const RestaurantCards = (props)=>{
+  const loginUser = useContext(UserContext);
+  const {loggedInUser} = loginUser;
+  console.log(loginUser);
     const {res} = props
     const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = res?.info
+  
     return (
       <div className="m-4 p-4 w-[250px] rounded-md  bg-gray-100 cursor-pointer">
         <img
@@ -12,6 +18,7 @@ const RestaurantCards = (props)=>{
         <h4 className="break-words">{cuisines.join(",")}</h4>
         <h4>{avgRating}</h4>
         <h4>{costForTwo}</h4>
+        <h4>{loggedInUser}</h4>
       </div>
     );
   };

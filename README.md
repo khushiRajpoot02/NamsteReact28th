@@ -60,4 +60,6 @@ Key Points:
 2. Pure component or pure functions are the functions which will always return the same output for the given same input.
 3. Pure function does not change any objects or variables that existed before it was called.
 -----------------------------------------------------------------
+Props Drilling----->for avoiding props drilling we use -----React Context---
+
 

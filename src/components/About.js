@@ -1,6 +1,7 @@
 import UserClass from "./UserClass";
 import { Component } from "react";
 import React from "react";
+import UserContext from "../utils/UserContext";
 class About extends Component {
 constructor(props){
   super(props);
@@ -15,11 +16,17 @@ constructor(props){
 
     console.log("Parent component Did Mount");
   }
+  // using React context inside class base component
+
   render() {
+    // const {loggedInUser} = useContext(UserContext);
     console.log(" parent render");
     return (
       <div>
         <h1>About Us</h1>
+        <UserContext.Consumer>
+        {({loggedInUser})=><h1 className="font-bold text-lg">{loggedInUser}</h1>}
+        </UserContext.Consumer>
         <h2>This is Namste Food Adda</h2>
         <UserClass/>
       </div>

@@ -20,6 +20,8 @@
 // let num1 = prompt("enter 1st no");
 // let num2 = prompt("enter 2nd no");
 
+import { useState } from "react"
+
 // function  calculate (a, b){
 //     switch(tel){
 //         case "+":
@@ -810,23 +812,48 @@ you have worked realy hard and now it's time to not give up keep working hard yo
   //     console.log("inside catch", error);
   //   }
   // )
-  const swiggy_api_URL =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.3176452&lng=82.9739144&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+  // const swiggy_api_URL =
+  // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.3176452&lng=82.9739144&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
   
-  async function getPost(){
-      const response = await fetch(swiggy_api_URL);
-      if(!response.ok){
-        throw new Error("something went wrong"); 
-      } 
-      const data = await response.json();
-      return data;
-  }
-  getPost().then(
-    (myData)=>{
-      console.log(myData);
-    }
-  ).catch(
-    (error)=>{
-      console.log("inside catch block", error);
-    }
-  )
+  // async function getPost(){
+  //     const response = await fetch(swiggy_api_URL);
+  //     if(!response.ok){
+  //       throw new Error("something went wrong"); 
+  //     } 
+  //     const data = await response.json();
+  //     return data;
+  // }
+  // getPost().then(
+  //   (myData)=>{
+  //     console.log(myData);
+  //   }
+  // ).catch(
+  //   (error)=>{
+  //     console.log("inside catch block", error);
+  //   }
+  // )
+
+  /*Controlled and Uncontrolled component */
+//   import React from "react"
+//   import { useState } from "react"
+//   const[text, setText]=useState("");
+//   const handelChange=(e)=>{
+//    setText(e.target.vale);
+//   }
+
+//   export default function Dummy(){
+//     return(
+//         <div>
+//         <input type="text" label="First Input"/>
+//         <input type="text" label="Second Input"/>
+//         </div>
+//     )
+// }
+
+// export const SyncedInput=()=>{
+//   return(
+//     <div>
+//     <input value={text} onChange={handelChange}/>
+//     </div>
+//   )
+// }

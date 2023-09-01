@@ -39,3 +39,5 @@
 //       return [ListOfRestaurants,filteredRestaurant];
 // }
 // export default useResData;
+
+//controlled and uncontrolled components

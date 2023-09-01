@@ -28,7 +28,7 @@ const useRestaurantMenu = (
         //                       filter(x=> x['@type'] == MENU_ITEM_TYPE_KEY)?.
         //                       map(x=> x.itemCards).flat().map(x=> x.card?.info) || [];
 
-        const menuItemsData = json?.data?.cards.find(x=> x.groupedCard)?.
+  const menuItemsData = json?.data?.cards.find(x=> x.groupedCard)?.
    groupedCard?.cardGroupMap?.REGULAR?.
    cards?.map(x => x.card?.card)?.
    filter(x=> x['@type'] == MENU_ITEM_TYPE_KEY) || [];
