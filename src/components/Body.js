@@ -5,12 +5,8 @@ import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { withPromotedLabel } from "./RestaurantCards";
-import UserContext from "../utils/UserContext";
-import { useContext } from "react";
 const Body = () => {
   // Updating userContext with input box
-
-  const { loggedInUser, setUserName} = useContext(UserContext);
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -88,14 +84,6 @@ const Body = () => {
           Top Rated restaurant
         </button>
         </div>
-        <div className="search m-4 p-4 flex items-center">
-        <label >UserName : </label>
-        <input className="border border-black p-1 "
-        value = {loggedInUser}
-        onChange={(e)=>setUserName(e.target.value)}
-        />
-        </div>
-        
       </div>
       <div  className="flex flex-wrap content-stretch ">
         

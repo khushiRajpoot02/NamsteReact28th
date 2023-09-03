@@ -18,7 +18,6 @@ const RestaurantCards = (props)=>{
         <h4 className="break-words">{cuisines.join(",")}</h4>
         <h4>{avgRating}</h4>
         <h4>{costForTwo}</h4>
-        <h4>{loggedInUser}</h4>
       </div>
     );
   };

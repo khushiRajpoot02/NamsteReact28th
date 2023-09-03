@@ -61,5 +61,12 @@ Key Points:
 3. Pure function does not change any objects or variables that existed before it was called.
 -----------------------------------------------------------------
 Props Drilling----->for avoiding props drilling we use -----React Context---
-
+---------------------------------------------------------
+# Redux ToolKit
+-install @reduxjs/toolkit and react-redux
+-Build our store
+-Connect our store to our app
+-Slice(cart slice)
+-dispatch(action)
+-selector
 
