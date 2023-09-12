@@ -81,3 +81,4 @@ Props Drilling----->for avoiding props drilling we use -----React Context---
   b. Using useRef which will take refrence of an input
 7. When we onClick on submit button form it's submit the form and for preventing this we use <Form onSubmit = e.preventDefault()>
 8. Once the user Sign in and sign up will push the user object to redux store
+9. Build signIn signup using firebase
