@@ -70,3 +70,14 @@ Props Drilling----->for avoiding props drilling we use -----React Context---
 -dispatch(action)
 -selector
 
+# Forms in react
+1. Login and Sign Up form
+2. Form validation 
+3. UseRef hook
+4. regex for email validation
+5. regex for password validation
+6. for getting typed email and password, there is 2 option
+  a. using useState var and bind this with input 
+  b. Using useRef which will take refrence of an input
+7. When we onClick on submit button form it's submit the form and for preventing this we use <Form onSubmit = e.preventDefault()>
+8. Once the user Sign in and sign up will push the user object to redux store

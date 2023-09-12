@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
@@ -39,4 +40,125 @@ input[type=email]:focus {
 .btn:hover{
     background-color: #555;
 }
+.body-container{
+   min-height: 80vh;
+}
+.search-container{
+  margin: 80px auto 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .search-input {
+  width: 30rem;
+  box-sizing: border-box;
+border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 8px 15px 8px 12px;
+  color: gray;
+  outline: none;
+  font-size: large;
+  font-weight: 500;
+}
+
+ .search-input:focus {
+  border-color:gray;
+}
+
+/* .search-container .search-input:placeholder-shown {
+  text-overflow: ellipsis;
+} */
+
+ .search-btn {
+ border-radius: 2px;
+  background-color:pink;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  color: #ffffff;
+  padding: 12px 22px;
+  margin-left: -4px;
+  cursor: pointer;
+  outline: none;
+  width: 80px;
+  height: 50px;
+}
+
+.search-btn:hover {
+  background-color: darkgray;
+}
+.search-btn{
+  background-color: pink;
+  border-radius: 5px;
+  color: black;
+  margin:5px;
+padding: 5px;
+
+}
+.restaurant-list{
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-self: stretch;
+}
+.res-container{
+  width: 200px;
+  border : 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  margin: 16px;
+}
+.card{
+  width: 240px;
+  padding:10px;
+  margin: 20px;
+  border-radius:5px ;
+  box-shadow:-1px 5px 10px 5px rgba(112, 112, 112, 0.2) ;
+  cursor: pointer;
+}
+.card:hover{
+  transform: scale(1.03);
+}
+.card > h3{
+  color: black;
+}
+.card > img {
+  width: 100%;
+  border-radius: 5px;
+  height: 200px;
+}
+
+.card > h5 {
+  font-weight: gray;
+  color:#555
+}
+
+.card > span {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.card > span > h4 {
+  font-weight: bolder;
+  font-size: 14px;
+  padding: 0 2px 0;
+  margin-top: 10px;
+  color: grey;
+}
+
+.card > span > h4:first-child {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+}
+
 

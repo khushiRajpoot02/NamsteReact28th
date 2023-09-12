@@ -9,13 +9,13 @@ const Header = () => {
   const cartItems = useSelector((store)=>store.cart.items)
   console.log(cartItems);
     return (
-      <div className="flex justify-between bg-pink-100 shadow-lg m-2">
-        <div  className="m-4 p-4">
-          <img className="w-28"
+      <div className="h-24 flex justify-between bg-pink-200 shadow-lg m-4 p-4 items-center">
+        <div  className=" m-4 p-4">
+          <img className="logo w-16"
             src={LOGO_URL}
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex">
           <ul  className="flex m-4 p-4">
           <li className="px-4">Online Status:{checkOnlineStatus === false?"🔴":"🟢"}</li>
             <li className="px-4"><Link to="/">Home</Link></li>

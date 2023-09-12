@@ -45,23 +45,23 @@ const Body = () => {
   }
   const checkOnlineStatus = useOnlineStatus();
   if(checkOnlineStatus===false)return <h1>Looks you are offline!! Please check your internet connection</h1>;
-  return ListOfRestaurants.length === 0 ? (
+  return ListOfRestaurants && ListOfRestaurants.length === 0 ? (
        <Shimmer/>
   ) : (
-    <div className="body">
-      <div className="flex">
-        <div className="search m-4 p-4">
+    <div className="body-container">
+      <div className="search-container">
+    
           <input
             type="text"
-            className=" border border-solid border-black"
+            className="search-input"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-          className="px-4 py-2 bg-green-100 m-2 rounded-lg"
-            onClick={() => {
+          className="search-btn"
+            onClick = {() => {
               const filteredData = ListOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -70,22 +70,8 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
-        <div className="search m-4 p-4 flex items-center">
-        <button
-          className="px-4 py-2 bg-gray-100 rounded-lg"
-          onClick = {() => {
-            const filteredData = ListOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setFilteredRestaurant(filteredData);
-          }}
-        >
-          Top Rated restaurant
-        </button>
-        </div>
       </div>
-      <div  className="flex flex-wrap content-stretch ">
+      <div  className="restaurant-list">
         
 {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
 {filteredRestaurant.map((restaurant) => {

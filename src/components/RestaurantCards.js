@@ -6,23 +6,41 @@ const RestaurantCards = (props)=>{
   const {loggedInUser} = loginUser;
   console.log(loginUser);
     const {res} = props
-    const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = res?.info
+    const {name, cuisines, avgRating, costForTwo, cloudinaryImageId, areaName} = res?.info
   
     return (
-      <div className="m-4 p-4 w-[250px] rounded-md  bg-gray-100 cursor-pointer">
-        <img
+      <div className="card">
+      
+      <img 
           alt="mehgana-food"
           className="res-img"
           src={CDN_URL+cloudinaryImageId}/>
+        
         <h3 className = "font-bold py-3">{name}</h3>
-        <h4 className="break-words">{cuisines.join(",")}</h4>
-        <h4>{avgRating}</h4>
-        <h4>{costForTwo}</h4>
+        <h5 className="break-words">{cuisines.join(",")}</h5>
+        <span>
+        <h4
+          style={
+            avgRating < 4
+              ? { backgroundColor: "red" }
+              : avgRating === "--"
+                ? { backgroundColor: "pink", color: "white" }
+                : { backgroundColor: "green", color: "black"}
+          }
+        >
+          <i className="fa-solid fa-star"></i>
+          {avgRating}
+        </h4>
+        <h4>•</h4>
+        <h4>{areaName}</h4>
+        <h4>•</h4>
+        <h4>{costForTwo ? costForTwo : '₹200 for two'}</h4>
+      </span>
       </div>
     );
   };
-// Higher Order Component
-// input--> RestaurantCards--->output==>ResturauntCardPromoted
+// // Higher Order Component
+// // input--> RestaurantCards--->output==>ResturauntCardPromoted
  export const withPromotedLabel = (RestaurantCards)=>{
   return (props)=>{
     return(

@@ -13,7 +13,7 @@ const useRestaurantMenu = (
     
     async function getRestaurantInfo() {
       try {
-        const response = await fetch(swiggy_menu_api_URL+ resId);
+        const response = await fetch(swiggy_menu_api_URL + resId);
         const json = await response.json();
     //console.log(json);
         // Set restaurant data
