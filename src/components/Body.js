@@ -45,7 +45,7 @@ const Body = () => {
   }
   const checkOnlineStatus = useOnlineStatus();
   if(checkOnlineStatus===false)return <h1>Looks you are offline!! Please check your internet connection</h1>;
-  return ListOfRestaurants && ListOfRestaurants.length === 0 ? (
+  return ListOfRestaurants && ListOfRestaurants?.length === 0 ? (
        <Shimmer/>
   ) : (
     <div className="body-container">

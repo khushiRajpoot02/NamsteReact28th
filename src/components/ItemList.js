@@ -17,10 +17,10 @@ const ItemList = ({items})=>{
           >
           <div className="w-9/12 ">
           <div className="py-2 ">
-          <span className="">{item.card.info.name}</span><br></br>
-          <span className="">-₹{item.card.info.price/100}</span>
+          <span className="">{item?.card?.info?.name}</span><br></br>
+          <span className="">-₹{item?.card?.info?.price/100}</span>
           </div>
-          <p className="text-xs text-zinc-400">{item.card.info.description}</p>
+          <p className="text-xs text-zinc-400">{item?.card?.info?.description}</p>
           </div>
           <div className="w-3/12">
           <div className="absolute">
@@ -29,7 +29,7 @@ const ItemList = ({items})=>{
           >Add+
           </button>
           </div>
-          <img className="rounded-md"src={CDN_URL + item.card.info.imageId}/>
+          <img className="rounded-md"src={CDN_URL + item?.card?.info?.imageId}/>
           </div>
           </div>
         ))}

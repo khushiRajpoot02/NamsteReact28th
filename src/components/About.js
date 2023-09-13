@@ -7,7 +7,6 @@ constructor(props){
   super(props);
 //   console.log("parent constructor");
 }
-
  componentDidMount(){
     // // const apiData = "https://api.github.com/users/khushiRajpoot02";
     // const data =  await fetch("https://api.github.com/users/khushiRajpoot02");

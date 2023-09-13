@@ -14,10 +14,10 @@ const handleClick =()=>{
   // after clicking on submit button whatever the data we will get will validate that and then after will procede
     // console.log(email.current.value);
     // console.log(password.current.value);
-    const meggase = validData(email.current.value, password.current.value);
+    const message = validData(email.current.value, password.current.value);
     // console.log(isValid);
-    setErrorMessage(meggase);
-    if(meggase!==null)return;
+    setErrorMessage(message);
+    if(message!==null)return;
     if(!signInform){
       //sign up
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
@@ -83,7 +83,6 @@ const handleClick =()=>{
         >{signInform ? "Sign In" : "Sign Up"}</button>
         <p className="py-2 text-red-400">{errorMessage}</p>
         <p className="py-2 text-slate-500 cursor-pointer" onClick = {signInToggle}>{signInform ? "Already Registered : login" : "New ? Sign Up now"}</p>
-     
         </form>
     </div>
   );
