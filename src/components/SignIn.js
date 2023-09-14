@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { validData } from "../utils/validator";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utils/firebase"
 const SignIn = () => {
 const[signInform, setIsSignInform] = useState(true);
@@ -10,8 +10,9 @@ const signInToggle = ()=>{
 }
 const email  = useRef(null);
 const password = useRef(null);
+const name = useRef(null);
 const handleClick =()=>{
-  // after clicking on submit button whatever the data we will get will validate that and then after will procede
+  // after clicking on submit button whatever the data we will get will validate that and then after will proceed
     // console.log(email.current.value);
     // console.log(password.current.value);
     const message = validData(email.current.value, password.current.value);
@@ -24,6 +25,16 @@ const handleClick =()=>{
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    updateProfile(user, {
+      displayName: name.current.value,
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+      setErrorMessage(errorMessage + "-" + errorCode)
+    });
     // ...
     console.log(user);
   })

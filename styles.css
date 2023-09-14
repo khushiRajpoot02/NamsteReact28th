@@ -37,6 +37,10 @@ input[type=email]:focus {
     padding : 8px 16px;
     
 }
+/* ul > li:hover{
+  background-color: pink;
+  box-shadow : blue
+} */
 .btn:hover{
     background-color: #555;
 }

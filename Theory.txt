@@ -1,0 +1,36 @@
+SignIn and SignUp form
+1. If the entry is large then we should add FORMIK for creating form in React
+2. As I build signIn and signUp toggle, I can build same feature with cart or any other things
+3. useRef Hook=> It will create the refrence of the value which we type in input box
+   const email = useRef(null);
+   const password = useRef(null);
+   Now  email and password contains the refrence of the feild where we type our value 
+
+How will we get the data which we type in input box in form
+   One way would be
+     a. to use state variables and bind that variable to the input box
+     b. Whenever the input box will change, our state variable will get updated
+   Another way would be (we can use refrence)
+     a. Use useRef Hook   
+
+How to host our application to firebase
+    # npm install firebase
+    # npm install -g firebase-tools
+    # firebase login
+    # firebse initia
+after above commands will get 3 to 4 options, while selecting the option we have to be careful
+when it ask about public directory, In create-react-app we use  ("build")
+and if we use parsel we use ("dist") as a public directory
+    # npm run build
+    # firebase deploy
+----------------------Creating userSlice--------------
+key points:
+  1. In redux we only can create one store, while multiple slice can be created
+  2. Creted Redux store with userSlice and used it inside appStore
+  3. Navigation can only happen inside child component
+  4. If suppose I have done routing inside the body component and also want to do navigation from this component itself, int this case it will not work
+As usersignin or signout I want to update userslice with that info
+  will do it using firebase utility Auth
+  and writing this function again and again will write it in utility file and from there will use it
+
+

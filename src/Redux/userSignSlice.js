@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const appSignSlice = createSlice({
+const userSignSlice = createSlice({
     name:"user",
     initialState :null,
     reducers :{
@@ -10,7 +10,6 @@ const appSignSlice = createSlice({
            return null;
         }
     }
-
 })
-export const {addUser, removeUser}  = appSignSlice.actions;
-export default appSignSlice.reducer;
+export const {addUser, removeUser}  = userSignSlice.actions;
+export default userSignSlice.reducer;

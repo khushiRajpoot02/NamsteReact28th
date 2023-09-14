@@ -7,8 +7,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
-// import { lazy, Suspense } from "react";
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
 import appStore from "./Redux/appStore";
 import Cart from "./Redux/Cart";
 import SignIn from "./components/SignIn"
@@ -65,9 +64,7 @@ const appRouter = createBrowserRouter([
     
     ],
     errorElement : <Error/>
- },
-  
+ }, 
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router = {appRouter} />);
