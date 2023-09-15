@@ -1,15 +1,13 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
 const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
  // giving control of this component to its parent
- // basicaly here RestaurantCategory state variables are changed by the RestaurentMenu compo(parent compo)
+ // basically here RestaurantCategory state variables are changed by the RestaurentMenu component(parent component)
   const handleClick = () => {
    setShowIndex();
   };
 
   return (
     <div>
-      {/*Header*/}
       <div
         className="cursor-pointer w-6/12 mx-auto my-4 bg-white shadow-lg p-4"
         onClick={handleClick}

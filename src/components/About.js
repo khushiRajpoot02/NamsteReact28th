@@ -33,25 +33,3 @@ constructor(props){
   }
 }
 export default About;
-/* Class Based Component-----
-making Account as class base component for User 
-it will behave as a parent of User component
-const About = () => {
-  return (
-    <div>
-      <h1>About Us</h1>
-      <h2>This is Namste Food Adda</h2>
-      <User name = {"Khushi Kumari"} 
-      location = {"Varanasi"}
-      contact = {"khushi@gmail.com"}
-      />
-      <UserClass
-      name = {"Khushi Kuamri(class)"}
-      location = {"Varanasi"}
-      contact = {"khushi@gmail.com"}
-      />
-    </div>
-  );
-};
-export default About;
-*/

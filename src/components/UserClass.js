@@ -40,21 +40,3 @@ class UserClass extends React.Component {
   }
 }
 export default UserClass;
-/*
-in case of multiple child below would be the render life cycle of parent child
-Parent---
---------Render phase of parent and child
-   parent constructor
-   parent render
-     First(class)child constructor
-      First(class) child render
-          Second(class)child constructor
-        Second(class) child render
-
---------DOM update of parent and child---
-     First(class)child component Did Mount
-    Second(class)child component Did Mount
-    Parent component Did Mount
-
-
-*/

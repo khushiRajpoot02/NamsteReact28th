@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LOGO_URL } from "../utils/constaints";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -19,8 +19,6 @@ const signInToggle = ()=>{
 useEffect(()=>{
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
       const {uid, email, displayName} = user;
       dispatch(addUser({uid : uid, email : email, displayName : displayName }))
       navigate("/");

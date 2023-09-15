@@ -3,7 +3,6 @@ import { addItem } from "../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({items})=>{
-    // console.log(items);
     const dispatch = useDispatch();
     const handleAddItems = (item)=>{
       dispatch(addItem(item));
@@ -37,4 +36,3 @@ const ItemList = ({items})=>{
     )
 }
 export default ItemList;
-// ---------1 to 2 months only bro enough of enough---------
